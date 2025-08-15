@@ -20,6 +20,10 @@ public class SessionMapper {
                 .statusSessao(dto.getStatusSessao())
                 .valorSessao(dto.getValorSessao())
                 .recorrencia(dto.getRecorrencia())
+                .recorrenciaDataFim(dto.getRecorrenciaDataFim())
+                .statusPagamento(dto.getStatusPagamento())
+                .dataRecebimento(dto.getDataRecebimento())
+                .formaRecebimento(dto.getFormaRecebimento())
                 .build();
     }
 
@@ -37,6 +41,10 @@ public class SessionMapper {
                 .statusSessao(session.getStatusSessao())
                 .valorSessao(session.getValorSessao())
                 .recorrencia(session.getRecorrencia())
+                .recorrenciaDataFim(session.getRecorrenciaDataFim())
+                .statusPagamento(session.getStatusPagamento())
+                .dataRecebimento(session.getDataRecebimento())
+                .formaRecebimento(session.getFormaRecebimento())
                 .build();
     }
 }
