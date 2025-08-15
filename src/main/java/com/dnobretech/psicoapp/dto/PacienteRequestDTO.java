@@ -4,10 +4,16 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class PacienteRequestDTO {
 
     @NotBlank(message = "O nome é obrigatório.")
@@ -19,8 +25,29 @@ public class PacienteRequestDTO {
 
     @NotNull(message = "Data de nascimento é obrigatória.")
     private LocalDate dataNascimento;
+    private String nomeSocial;
+    private String genero;
+    private String pronomes;
+    private String rg;
 
-    // ... adicione aqui TODOS os outros campos que vêm do formulário, com suas respectivas validações ...
+    // Campos de endereço
+    private String enderecoCep;
+    private String enderecoRua;
+    private String enderecoNumero;
+    private String enderecoComplemento;
+    private String enderecoBairro;
+    private String enderecoCidade;
+    private String enderecoEstado;
+
+    // Contato de emergência
+    private String contatoEmergenciaNome;
+    private String contatoEmergenciaParentesco;
+    private String contatoEmergenciaTelefone;
+
+    // Informações adicionais
+    private String comoConheceu;
+    private String campoObservacoesIniciais;
+    private String status;
 
     @NotBlank(message = "Telefone é obrigatório.")
     private String telefonePrincipal;

@@ -44,11 +44,9 @@ public class PacienteServiceImpl implements PacienteService {
     public Optional<PacienteResponseDTO> update(Long id, PacienteRequestDTO pacienteRequestDTO) {
         return pacienteRepository.findById(id)
                 .map(pacienteExistente -> {
-                    // Atualiza os campos do paciente existente
-                    pacienteExistente.setNomeCompleto(pacienteRequestDTO.getNomeCompleto());
-                    pacienteExistente.setCpf(pacienteRequestDTO.getCpf());
-                    // ... atualize os outros campos aqui ...
-                    PacienteModel updatedPaciente = pacienteRepository.save(pacienteExistente);
+                    PacienteModel pacienteAtualizado = PacienteMapper.toEntity(pacienteRequestDTO);
+                    pacienteAtualizado.setId(pacienteExistente.getId());
+                    PacienteModel updatedPaciente = pacienteRepository.save(pacienteAtualizado);
                     return PacienteMapper.toResponseDTO(updatedPaciente);
                 });
     }
