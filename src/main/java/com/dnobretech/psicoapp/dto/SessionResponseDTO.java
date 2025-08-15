@@ -26,4 +26,8 @@ public class SessionResponseDTO {
     private String statusSessao;
     private BigDecimal valorSessao;
     private String recorrencia;
+    private LocalDate recorrenciaDataFim;
+    private String statusPagamento;
+    private LocalDate dataRecebimento;
+    private String formaRecebimento;
 }

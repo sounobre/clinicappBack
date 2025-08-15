@@ -55,4 +55,16 @@ public class SessionModel {
 
     @Column(name = "recorrencia")
     private String recorrencia;
+
+    @Column(name = "recorrencia_data_fim")
+    private LocalDate recorrenciaDataFim;
+
+    @Column(name = "status_pagamento")
+    private String statusPagamento;
+
+    @Column(name = "data_recebimento")
+    private LocalDate dataRecebimento;
+
+    @Column(name = "forma_recebimento")
+    private String formaRecebimento;
 }
