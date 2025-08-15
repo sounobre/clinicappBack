@@ -9,26 +9,42 @@ public class PacienteMapper {
 
     // Converte um RequestDTO para uma Entidade Paciente
     public static PacienteModel toEntity(PacienteRequestDTO dto) {
-        PacienteModel paciente = new PacienteModel();
-        paciente.setNomeCompleto(dto.getNomeCompleto());
-        paciente.setCpf(dto.getCpf());
-        paciente.setDataNascimento(dto.getDataNascimento());
-        paciente.setTelefonePrincipal(dto.getTelefonePrincipal());
-        paciente.setEmailPrincipal(dto.getEmailPrincipal());
-        paciente.setConsentimentoLgpd(dto.getConsentimentoLgpd());
-        // Adicione aqui a conversão dos outros campos do DTO para a entidade
-        return paciente;
+        return PacienteModel.builder()
+                .nomeCompleto(dto.getNomeCompleto())
+                .cpf(dto.getCpf())
+                .dataNascimento(dto.getDataNascimento())
+                .nomeSocial(dto.getNomeSocial())
+                .genero(dto.getGenero())
+                .pronomes(dto.getPronomes())
+                .rg(dto.getRg())
+                .enderecoCep(dto.getEnderecoCep())
+                .enderecoRua(dto.getEnderecoRua())
+                .enderecoNumero(dto.getEnderecoNumero())
+                .enderecoComplemento(dto.getEnderecoComplemento())
+                .enderecoBairro(dto.getEnderecoBairro())
+                .enderecoCidade(dto.getEnderecoCidade())
+                .enderecoEstado(dto.getEnderecoEstado())
+                .contatoEmergenciaNome(dto.getContatoEmergenciaNome())
+                .contatoEmergenciaParentesco(dto.getContatoEmergenciaParentesco())
+                .contatoEmergenciaTelefone(dto.getContatoEmergenciaTelefone())
+                .comoConheceu(dto.getComoConheceu())
+                .campoObservacoesIniciais(dto.getCampoObservacoesIniciais())
+                .telefonePrincipal(dto.getTelefonePrincipal())
+                .emailPrincipal(dto.getEmailPrincipal())
+                .consentimentoLgpd(dto.getConsentimentoLgpd())
+                .status(dto.getStatus())
+                .build();
     }
 
     // Converte uma Entidade Paciente para um ResponseDTO
     public static PacienteResponseDTO toResponseDTO(PacienteModel paciente) {
-        PacienteResponseDTO dto = new PacienteResponseDTO();
-        dto.setId(paciente.getId());
-        dto.setNomeCompleto(paciente.getNomeCompleto());
-        dto.setTelefonePrincipal(paciente.getTelefonePrincipal());
-        dto.setEmailPrincipal(paciente.getEmailPrincipal());
-        dto.setStatus(paciente.getStatus());
-        dto.setDataNascimento(paciente.getDataNascimento());
-        return dto;
+        return PacienteResponseDTO.builder()
+                .id(paciente.getId())
+                .nomeCompleto(paciente.getNomeCompleto())
+                .telefonePrincipal(paciente.getTelefonePrincipal())
+                .emailPrincipal(paciente.getEmailPrincipal())
+                .status(paciente.getStatus())
+                .dataNascimento(paciente.getDataNascimento())
+                .build();
     }
 }

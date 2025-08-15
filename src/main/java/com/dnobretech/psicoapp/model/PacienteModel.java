@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @Data // Anotação do Lombok que cria getters, setters, toString, etc.
 @NoArgsConstructor // Lombok: cria um construtor sem argumentos
 @AllArgsConstructor // Lombok: cria um construtor com todos os argumentos
+@Builder // Lombok: fornece um builder para a entidade
 public class PacienteModel {
 
     @Id // Marca este campo como a chave primária
