@@ -7,11 +7,11 @@ import com.dnobretech.psicoapp.model.PacienteModel;
 import com.dnobretech.psicoapp.repository.PacienteRepository;
 import com.dnobretech.psicoapp.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service // Marca a classe como um componente de serviço (lógica de negócio)
 public class PacienteServiceImpl implements PacienteService {
@@ -20,11 +20,9 @@ public class PacienteServiceImpl implements PacienteService {
     private PacienteRepository pacienteRepository;
 
     @Override
-    public List<PacienteResponseDTO> findAll() {
-        return pacienteRepository.findAll()
-                .stream()
-                .map(PacienteMapper::toResponseDTO)
-                .collect(Collectors.toList());
+    public Page<PacienteResponseDTO> findAll(Pageable pageable) {
+        return pacienteRepository.findAll(pageable)
+                .map(PacienteMapper::toResponseDTO);
     }
 
     @Override
