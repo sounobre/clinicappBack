@@ -5,10 +5,11 @@ import com.dnobretech.psicoapp.dto.PacienteResponseDTO;
 import com.dnobretech.psicoapp.service.PacienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/patients")
@@ -18,8 +19,9 @@ public class PacienteController {
     private PacienteService pacienteService; // Agora depende do Serviço, não do Repositório!
 
     @GetMapping
-    public List<PacienteResponseDTO> getAllPacientes() {
-        return pacienteService.findAll();
+    public Page<PacienteResponseDTO> getAllPacientes(
+            @PageableDefault(size = 10) Pageable pageable) {
+        return pacienteService.findAll(pageable);
     }
 
     @GetMapping("/{id}")
