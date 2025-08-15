@@ -21,8 +21,9 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Override
     public Page<PacienteResponseDTO> findAll(Pageable pageable) {
-        return pacienteRepository.findAll(pageable)
+        var p = pacienteRepository.findAll(pageable)
                 .map(PacienteMapper::toResponseDTO);
+        return p;
     }
 
     @Override

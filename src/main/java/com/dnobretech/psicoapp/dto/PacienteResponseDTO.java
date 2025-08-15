@@ -1,15 +1,14 @@
 package com.dnobretech.psicoapp.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.time.LocalDate;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class PacienteResponseDTO {
     private Long id;
     private String nomeCompleto;
