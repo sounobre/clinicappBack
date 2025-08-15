@@ -13,8 +13,26 @@ import java.time.LocalDate;
 public class PacienteResponseDTO {
     private Long id;
     private String nomeCompleto;
+    private String cpf;
+    private LocalDate dataNascimento;
+    private String nomeSocial;
+    private String genero;
+    private String pronomes;
+    private String rg;
+    private String enderecoCep;
+    private String enderecoRua;
+    private String enderecoNumero;
+    private String enderecoComplemento;
+    private String enderecoBairro;
+    private String enderecoCidade;
+    private String enderecoEstado;
+    private String contatoEmergenciaNome;
+    private String contatoEmergenciaParentesco;
+    private String contatoEmergenciaTelefone;
+    private String comoConheceu;
+    private String campoObservacoesIniciais;
+    private String status;
     private String telefonePrincipal;
     private String emailPrincipal;
-    private String status;
-    private LocalDate dataNascimento;
+    private Boolean consentimentoLgpd;
 }
